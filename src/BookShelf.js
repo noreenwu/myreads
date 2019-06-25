@@ -25,14 +25,14 @@ class BookShelf extends React.Component {
                     <h2 className="bookshelf-title">{this.props.shelfName}</h2>
                     <div className="bookshelf-books">
                       <ol className="books-grid">
-                        <li>
+
 
                           {console.log(this.props.shelfBooks)}
                           {this.props.shelfBooks.map((b) =>
                               <Book theBook={b} disp={this.bookDisplay(b)}/>
 
                           )}
-                        </li>
+
 
                       </ol>
                     </div>

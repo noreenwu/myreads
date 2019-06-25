@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 const Book = (props) => {
 
 return(
-
+					  <li>
                         <div className="book">
                           <div className="book-top">
-                            <div className="book-cover book-cover-add" style={props.disp}></div>
+                            <div className="book-cover" style={props.disp}></div>
                             <div className="book-shelf-changer">
                               <select>
                                 <option value="move" disabled>Move to...</option>
@@ -21,6 +21,7 @@ return(
                           <div className="book-title">{props.theBook.title}</div>
                           <div className="book-authors">{props.theBook.authors}</div>
                         </div>
+					  </li>
      )
 }
 
