@@ -43,7 +43,6 @@ class BookShelf extends React.Component {
 
 BookShelf.propTypes = {
   shelfName: PropTypes.string.isRequired,
-  shelfBooks: PropTypes.array.isRequired,
-  bookDisplay: PropTypes.array.isRequired
+  shelfBooks: PropTypes.array.isRequired
 };
 export default BookShelf

@@ -126,7 +126,7 @@ class BooksApp extends React.Component {
               <div>
 				<BookShelf shelfName={'Currently Reading'} 
 						   shelfBooks={this.state.localBooks.filter(this.filterBooks)}
-						   bookDisplay={this.state.localBooks.filter(this.filterBooks).map(this.displayVals)}/>
+						   />
           
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
