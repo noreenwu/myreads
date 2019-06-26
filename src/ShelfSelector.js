@@ -1,36 +1,39 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ShelfSelector = (props) => {
+class ShelfSelector extends React.Component {
+  state = {
+    selectValues : [
+      { val: 'move',
+        label: 'Move to...'
+      },
+      { val: 'currentlyReading',
+        label: 'Currently Reading'
+      },
+      { val: 'wantToRead',
+        label: 'Want to Read'
+      },
+      { val: 'read',
+        label: 'Read'
+      },
+      { val: 'none',
+        label: 'None'
+      }      
+    ]
+}
 
-const selectValues = [
-  { val: 'move',
-    label: 'Move to...'
-  },
-  { val: 'currentlyReading',
-    label: 'Currently Reading'
-  },
-  { val: 'wantToRead',
-    label: 'Want to Read'
-  },
-  { val: 'read',
-    label: 'Read'
-  },
-  { val: 'none',
-    label: 'None'
-  }      
-];
-  
-return(
-    <div className="book-shelf-changer">
-          <select>
-  			{ selectValues.map(v => (
-               	<option value={v.val}>{v.label}</option>
-  			   ))
-   			}
-          </select>
-    </div>
-  )
+  render() {
+    return(
+        <div className="book-shelf-changer">
+              <select value={this.props.shelf}>
+                { this.state.selectValues.map(v => (
+                    <option value={v.val}>{v.label}</option>
+                   ))
+                }
+              </select>
+        </div>
+      )
+    }
 }
 
 ShelfSelector.propTypes = {

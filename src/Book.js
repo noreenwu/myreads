@@ -20,7 +20,7 @@ return(
 
 Book.propTypes = {
   theBook: PropTypes.object.isRequired,
-  disp: PropTypes.object.isRequired
+  disp: PropTypes.object.isRequired            // the book display properties, like width and height and url
 }
 
 export default Book
