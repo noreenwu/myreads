@@ -2,16 +2,33 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ShelfSelector = (props) => {
+
+const selectValues = [
+  { val: 'move',
+    label: 'Move to...'
+  },
+  { val: 'currentlyReading',
+    label: 'Currently Reading'
+  },
+  { val: 'wantToRead',
+    label: 'Want to Read'
+  },
+  { val: 'read',
+    label: 'Read'
+  },
+  { val: 'none',
+    label: 'None'
+  }      
+];
   
 return(
     <div className="book-shelf-changer">
-        <select>
-            <option value="move" disabled>Move to...</option>
-            <option value="currentlyReading">Currently Reading</option>
-            <option value="wantToRead">Want to Read</option>
-            <option value="read">Read</option>
-            <option value="none">None</option>
-        </select>
+          <select>
+  			{ selectValues.map(v => (
+               	<option value={v.val}>{v.label}</option>
+  			   ))
+   			}
+          </select>
     </div>
   )
 }
