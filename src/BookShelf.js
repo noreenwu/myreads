@@ -14,9 +14,9 @@ class BookShelf extends React.Component {
 	}
 
 	handleShelfChange = (ev, b) => {
-      console.log("BookShelf: handleShelfChange");
       this.props.handleShelfChange(ev, b);
-      console.log("BookShelf: " + b.id);
+      // BookShelf will call handleShelfChange from App as the state of the
+      //  books and what shelves they are on is stored there
     }
 
     render() {

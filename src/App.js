@@ -89,13 +89,34 @@ class BooksApp extends React.Component {
     );
   }
 
+  findBook = (bid) => {
+	for (let i=0; i<  this.state.localBooks.length; i++) {
+      if (this.state.localBooks[i].id === bid) {
+        return i;
+      }
+    }    
+    return -1;    // didn't find the book
+  }
 
   handleShelfChange = (ev, b) => {
-    console.log("App: handleShelfChange");
-    console.log("App event: " + typeof(ev));
-    console.log("App book: " + b.id);
+    // The directive to move a book from one shelf to another came from ShelfSelector
+    //  which detected that the user made a change in a <select> control. Handling of
+    //  the change is propagated up from ShelfSelector to Book (which adds in which book
+    //  info) to BookShelf and finally here, to App, where the state of the books,
+    //  including which shelf it lives on, is kept.
+    // 
+    // In order to change the bookshelf state, we need to copy the array, make the change and
+    // then reset the localBooks array; we cannot make changes to the state directly.
+    
+    const newLocalBooks = this.state.localBooks.slice();  // copy localBooks
+    let bidx = this.findBook(b.id);
+    if (bidx !== -1) {
+      newLocalBooks[bidx].shelf = ev;
+    }
 
- 	//let biq = this.state.localBooks.filter(function() { return b == });
+    this.setState( {
+		localBooks: newLocalBooks
+    })
 
   }
 
