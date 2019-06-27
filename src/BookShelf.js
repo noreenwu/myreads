@@ -13,6 +13,12 @@ class BookShelf extends React.Component {
       );
 	}
 
+	handleShelfChange = (ev, b) => {
+      console.log("BookShelf: handleShelfChange");
+      this.props.handleShelfChange(ev, b);
+      console.log("BookShelf: " + b.id);
+    }
+
     render() {
       return(
                   <div className="bookshelf">
@@ -20,7 +26,11 @@ class BookShelf extends React.Component {
                     <div className="bookshelf-books">
                       <ol className="books-grid">
                           {this.props.shelfBooks.map((b) =>
-                              <Book theBook={b} disp={this.bookDisplay(b)}/>
+                              <Book key={b.id}
+									theBook={b} 
+									disp={this.bookDisplay(b)}
+									handleShelfChange={this.handleShelfChange}
+								/>
                           )}
                       </ol>
                     </div>
@@ -31,6 +41,7 @@ class BookShelf extends React.Component {
 
 BookShelf.propTypes = {
   shelfName: PropTypes.string.isRequired,
-  shelfBooks: PropTypes.array.isRequired
+  shelfBooks: PropTypes.array.isRequired,
+  handleShelfChange: PropTypes.func.isRequired  
 };
 export default BookShelf

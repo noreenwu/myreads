@@ -88,6 +88,17 @@ class BooksApp extends React.Component {
       }
     );
   }
+
+
+  handleShelfChange = (ev, b) => {
+    console.log("App: handleShelfChange");
+    console.log("App event: " + typeof(ev));
+    console.log("App book: " + b.id);
+
+ 	//let biq = this.state.localBooks.filter(function() { return b == });
+
+  }
+
   componentDidMount() {
     BooksAPI.getAll()
     .then((books) => {
@@ -132,14 +143,17 @@ class BooksApp extends React.Component {
               <div>
 				<BookShelf shelfName={'Currently Reading'} 
 						   shelfBooks={this.state.localBooks.filter(this.filterBooks('currentlyReading'))}
+						   handleShelfChange={this.handleShelfChange}
 						   />
           
 				<BookShelf shelfName={'Want to Read'} 
 						   shelfBooks={this.state.localBooks.filter(this.filterBooks('wantToRead'))}
+						   handleShelfChange={this.handleShelfChange}
 						   />
 
 				<BookShelf shelfName={'Read'} 
 						   shelfBooks={this.state.localBooks.filter(this.filterBooks('read'))}
+						   handleShelfChange={this.handleShelfChange}
 						   />
 
               </div>
