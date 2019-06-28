@@ -1,5 +1,7 @@
 import React from 'react'
-import BookShelf from './BookShelf'
+import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import BookCase from './BookCase'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -135,10 +137,12 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
 
-        {this.state.showSearchPage ? (
+        <Route path='/search' render={() => (
           <div className="search-books">
             <div className="search-books-bar">
-              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+              <Link to='/'
+    				className="close-search">
+    				Close</Link>
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -156,39 +160,31 @@ class BooksApp extends React.Component {
               <ol className="books-grid"></ol>
             </div>
           </div>
-        ) : (
-          <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
-            <div className="list-books-content">
-              <div>
-				<BookShelf shelfName={'Currently Reading'} 
-						   shelfBooks={this.state.localBooks.filter(this.filterBooks('currentlyReading'))}
-						   handleShelfChange={this.handleShelfChange}
-						   />
-          
-				<BookShelf shelfName={'Want to Read'} 
-						   shelfBooks={this.state.localBooks.filter(this.filterBooks('wantToRead'))}
-						   handleShelfChange={this.handleShelfChange}
-						   />
+        )} />
 
-				<BookShelf shelfName={'Read'} 
-						   shelfBooks={this.state.localBooks.filter(this.filterBooks('read'))}
-						   handleShelfChange={this.handleShelfChange}
-						   />
+        <Route path='/' render={() => (
 
+              <div className="list-books">
+                <div className="list-books-title">
+                  <h1>MyReads</h1>
+                </div>
+                  <BookCase localBooks={this.state.localBooks}
+                            handleShelfChange={this.handleShelfChange}
+                            filterBooks={this.filterBooks}
+                  />
+
+                  <div className="open-search">
+                    <Link
+                        to='/search'
+                        className='search-books'
+                      >Add a book</Link>
+                  </div>
               </div>
-            </div>
-			
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-            </div>
-          </div>
-        )}
+            ) 
+          } />
       </div>
     )
-  }
+  } 
 }
 
 export default BooksApp
