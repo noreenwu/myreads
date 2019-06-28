@@ -3,6 +3,7 @@ import BookShelf from './BookShelf'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+
 class BooksApp extends React.Component {
   state = {
     localBooks: [
@@ -179,6 +180,7 @@ class BooksApp extends React.Component {
 
               </div>
             </div>
+			
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
             </div>
@@ -190,3 +192,4 @@ class BooksApp extends React.Component {
 }
 
 export default BooksApp
+
