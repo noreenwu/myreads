@@ -19,6 +19,11 @@ class SearchBooks extends Component {
   render() {
     const { query } = this.state
 	const { books, handleShelfChange } = this.props
+	const showingBooks = query === '' 
+		? books
+		: books.filter((b) => (
+          	b.title.toLowerCase().includes(query.toLowerCase())
+          ))
     return (
           <div className="search-books">           
             <div className="search-books-bar">
@@ -44,15 +49,17 @@ class SearchBooks extends Component {
     				value={query}
 					onChange={(event) => this.updateQuery(event.target.value)}
     			/>
-              	<BookShelf shelfName={'Search Results'} 
-              		shelfBooks={books}
-              		handleShelfChange={handleShelfChange}
-              	/>
+
               </div>
           {JSON.stringify(this.state)}
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
+                	<BookShelf shelfName={'Search Results'} 
+              				   shelfBooks={showingBooks}
+              				   handleShelfChange={handleShelfChange}
+              		/>
+			  </ol>
             </div>
           </div>      
     )
