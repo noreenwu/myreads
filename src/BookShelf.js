@@ -6,9 +6,11 @@ import PropTypes from 'prop-types'
 class BookShelf extends React.Component {
 	bookDisplay = (b) => {
       return(
-        { width: b.width,
-          height: b.height,
-          backgroundImage: b.backgroundImage
+        {
+          width: b.width = 128,
+          height: b.height = 188,
+                // backgroundImage: `url(${b.backgroundImage})`
+          backgroundImage: `url(${b.imageLinks.thumbnail})`
         }
       );
 	}
