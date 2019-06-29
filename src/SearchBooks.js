@@ -2,28 +2,49 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
+import * as BooksAPI from './BooksAPI'
+
 
 class SearchBooks extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired
   }
   state= {
-    query: ''
+    query: '',
+    sb: []
   }
+  showingBooks = []
+
   updateQuery = (query) => {
-	this.setState(() => ({
-      	query: query.trim()
+	 this.setState(() => ({
+      	// query: query.trim()
+       query: query
     }))
+    
+    if (query === '') {
+        console.log("query is blank");
+        this.setState({sb: []});
+
+    }
+    else {
+        console.log("query is NOT blank");
+    	BooksAPI.search(query.toLowerCase(), 10)
+    		.then((bks) => {
+              	 this.setState({sb: bks});
+             }).catch((err) => {
+          		 console.log("search error: " + err);
+          		 this.setState({sb: []});
+             })
+    }
   }
 
-  render() {
+  render() { 
     const { query } = this.state
-	const { books, handleShelfChange } = this.props
-	const showingBooks = query === '' 
-		? books
-		: books.filter((b) => (
-          	b.title.toLowerCase().includes(query.toLowerCase())
-          ))
+	const { handleShelfChange } = this.props
+
+	// console.log("showingBooks: " + JSON.stringify(this.state.sb));
+	// console.log("length of showingBooks " + this.state.sb.length);
+
     return (
           <div className="search-books">           
             <div className="search-books-bar">
@@ -51,12 +72,12 @@ class SearchBooks extends Component {
     			/>
 
               </div>
-          {JSON.stringify(this.state)}
+         
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
                 	<BookShelf shelfName={'Search Results'} 
-              				   shelfBooks={showingBooks}
+              				   shelfBooks={this.state.sb}
               				   handleShelfChange={handleShelfChange}
               		/>
 			  </ol>

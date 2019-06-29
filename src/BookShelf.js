@@ -5,12 +5,25 @@ import PropTypes from 'prop-types'
 
 class BookShelf extends React.Component {
 	bookDisplay = (b) => {
+      let dispObj = {
+        width: 128,
+        height: 188,
+        backgroundImage: 'no image'
+      }
+      if (b.width !== undefined) {
+        dispObj.width = b.width;
+      }
+      if (b.height !== undefined) {
+        dispObj.height = b.height;
+      }
+      if ( b.imageLinks !== undefined ) {
+        dispObj.backgroundImage = `url(${b.imageLinks.thumbnail})`;
+      }
       return(
         {
-          width: b.width = 128,
-          height: b.height = 188,
-                // backgroundImage: `url(${b.backgroundImage})`
-          backgroundImage: `url(${b.imageLinks.thumbnail})`
+			width: dispObj.width,
+            height: dispObj.height,
+            backgroundImage: dispObj.backgroundImage
         }
       );
 	}
