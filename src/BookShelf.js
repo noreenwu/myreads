@@ -4,11 +4,16 @@ import PropTypes from 'prop-types'
 
 
 class BookShelf extends React.Component {
+  
+   /*********************************************************************/
+   // This function returns a valid object which can be used in the JSX
+   // to render a book cover. Not all of the information is always
+   // available.
 	bookDisplay = (b) => {
       let dispObj = {
         width: 128,
         height: 188,
-        backgroundImage: 'no image'
+        backgroundImage: ''
       }
       if (b.width !== undefined) {
         dispObj.width = b.width;
@@ -28,6 +33,7 @@ class BookShelf extends React.Component {
       );
 	}
 
+   /*********************************************************************/
 	handleShelfChange = (ev, b) => {
       this.props.handleShelfChange(ev, b);
       // BookShelf will call handleShelfChange from App as the state of the
