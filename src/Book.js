@@ -4,6 +4,7 @@ import ShelfSelector from './ShelfSelector'
 
 class Book extends React.Component {
   handleShelfChange = (ev) => {
+    console.log("Book: handleShelfChange " + ev + ' ' + this.props.theBook.title);
     this.props.handleShelfChange(ev, this.props.theBook);
     // this function will be called by ShelfSelector, if the user chooses
     //   to move one of the books to a different shelf. ShelfSelector
@@ -18,6 +19,7 @@ class Book extends React.Component {
                 <div className="book">
                     <div className="book-top">
                         <div className="book-cover" style={this.props.disp}></div>
+{ console.log("Book, the shelf, id :  " + this.props.theBook.shelf + ' ' + this.props.theBook.id) }
                             <ShelfSelector shelf={this.props.theBook.shelf} 
 										   handleShelfChange={this.handleShelfChange}/>
                         </div>

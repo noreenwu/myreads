@@ -138,6 +138,33 @@ class BooksApp extends React.Component {
 
   }
 
+  addBookToLibrary = (ev, b) => {
+     console.log("App: addBookToLibrary ");
+    
+
+     BooksAPI.get(b.id)
+    	.then((bk) => {
+       		const newLocalBooks = this.state.localBooks.slice();  // copy localBooks
+       		console.log("bk.shelf: " + bk.shelf);
+       	    bk.shelf = ev;
+       		newLocalBooks.push(bk);
+       
+            BooksAPI.update(bk, 'read')
+              .then((res) => {
+              console.log("updated book shelf on API " + res);
+            });
+       
+       		this.setState({
+                localBooks : newLocalBooks
+              })
+       
+  		})
+              
+               
+
+  }
+
+
   componentDidMount() {
     BooksAPI.getAll()
     .then((books) => {
@@ -151,13 +178,14 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
- {console.log(this.state.books)}
+       {console.log(this.state.books[0])}
 		<Route 
     		path='/search' 
     		render={() => (
           		<SearchBooks
               		books={this.state.books}
 					handleShelfChange={this.handleShelfChange}
+					addBookToLibrary={this.addBookToLibrary}
 				/>
          	)}
 	 	/>

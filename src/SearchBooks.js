@@ -7,27 +7,35 @@ import * as BooksAPI from './BooksAPI'
 
 class SearchBooks extends Component {
   static propTypes = {
-    books: PropTypes.array.isRequired
+    books: PropTypes.array.isRequired,
+    addBookToLibrary: PropTypes.func.isRequired
   }
   state= {
     query: '',
     sb: []
   }
-  showingBooks = []
+  // showingBooks = []
+
+  handleShelfChange = (ev, b) => {
+    console.log("SearchBooks: handleShelfChange " + b.id);
+    // console.log(BooksAPI.get(b.id));
+    this.props.addBookToLibrary(ev, b);
+    // will have to grab the book and move it local and also update it in the API
+  }
 
   updateQuery = (query) => {
 	 this.setState(() => ({
-      	// query: query.trim()
        query: query
+       //query: query
     }))
     
     if (query === '') {
-        console.log("query is blank");
-        this.setState({sb: []});
-
+        this.setState({
+          sb: [],
+          query: ''
+        });
     }
     else {
-        console.log("query is NOT blank");
     	BooksAPI.search(query.toLowerCase(), 10)
     		.then((bks) => {
               	 this.setState({sb: bks});
@@ -40,7 +48,7 @@ class SearchBooks extends Component {
 
   render() { 
     const { query } = this.state
-	const { handleShelfChange } = this.props
+	// const { handleShelfChange } = this.props
 
 	// console.log("showingBooks: " + JSON.stringify(this.state.sb));
 	// console.log("length of showingBooks " + this.state.sb.length);
@@ -78,7 +86,7 @@ class SearchBooks extends Component {
               <ol className="books-grid">
                 	<BookShelf shelfName={'Search Results'} 
               				   shelfBooks={this.state.sb}
-              				   handleShelfChange={handleShelfChange}
+              				   handleShelfChange={this.handleShelfChange}
               		/>
 			  </ol>
             </div>
