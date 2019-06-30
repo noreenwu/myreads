@@ -18,7 +18,6 @@ class BooksApp extends React.Component {
         imageLinks: {
           thumbnail: "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api"
         },
-        // backgroundImage: "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api",
        shelf: 'currentlyReading'
       },
       { id: 'enders', 
@@ -29,7 +28,6 @@ class BooksApp extends React.Component {
         imageLinks: {
           thumbnail: "http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api"
         },       
-        // backgroundImage: "http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api",
         shelf: 'currentlyReading'
       },
       { id: '1776',
@@ -40,7 +38,6 @@ class BooksApp extends React.Component {
         imageLinks: {
           thumbnail: "http://books.google.com/books/content?id=uu1mC6zWNTwC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73pGHfBNSsJG9Y8kRBpmLUft9O4BfItHioHolWNKOdLavw-SLcXADy3CPAfJ0_qMb18RmCa7Ds1cTdpM3dxAGJs8zfCfm8c6ggBIjzKT7XR5FIB53HHOhnsT7a0Cc-PpneWq9zX&source=gbs_api"
         },        
-        // backgroundImage: "http://books.google.com/books/content?id=uu1mC6zWNTwC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73pGHfBNSsJG9Y8kRBpmLUft9O4BfItHioHolWNKOdLavw-SLcXADy3CPAfJ0_qMb18RmCa7Ds1cTdpM3dxAGJs8zfCfm8c6ggBIjzKT7XR5FIB53HHOhnsT7a0Cc-PpneWq9zX&source=gbs_api",
         shelf: 'wantToRead'
       },
       { id: 'potter', 
@@ -51,7 +48,6 @@ class BooksApp extends React.Component {
         imageLinks: {
           thumbnail: "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72G3gA5A-Ka8XjOZGDFLAoUeMQBqZ9y-LCspZ2dzJTugcOcJ4C7FP0tDA8s1h9f480ISXuvYhA_ZpdvRArUL-mZyD4WW7CHyEqHYq9D3kGnrZCNiqxSRhry8TiFDCMWP61ujflB&source=gbs_api"
         },        
-        // backgroundImage: "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72G3gA5A-Ka8XjOZGDFLAoUeMQBqZ9y-LCspZ2dzJTugcOcJ4C7FP0tDA8s1h9f480ISXuvYhA_ZpdvRArUL-mZyD4WW7CHyEqHYq9D3kGnrZCNiqxSRhry8TiFDCMWP61ujflB&source=gbs_api",
         shelf: 'wantToRead',
       },
       { id: 'hobbit',
@@ -62,7 +58,6 @@ class BooksApp extends React.Component {
         imageLinks: {
           thumbnail: "http://books.google.com/books/content?id=pD6arNyKyi8C&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70Rw0CCwNZh0SsYpQTkMbvz23npqWeUoJvVbi_gXla2m2ie_ReMWPl0xoU8Quy9fk0Zhb3szmwe8cTe4k7DAbfQ45FEzr9T7Lk0XhVpEPBvwUAztOBJ6Y0QPZylo4VbB7K5iRSk&source=gbs_api"
         },        
-        // backgroundImage: "http://books.google.com/books/content?id=pD6arNyKyi8C&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70Rw0CCwNZh0SsYpQTkMbvz23npqWeUoJvVbi_gXla2m2ie_ReMWPl0xoU8Quy9fk0Zhb3szmwe8cTe4k7DAbfQ45FEzr9T7Lk0XhVpEPBvwUAztOBJ6Y0QPZylo4VbB7K5iRSk&source=gbs_api",
         shelf: 'read'
       },
       { id: 'places',
@@ -73,7 +68,6 @@ class BooksApp extends React.Component {
         imageLinks: {
           thumbnail: "http://books.google.com/books/content?id=1q_xAwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE712CA0cBYP8VKbEcIVEuFJRdX1k30rjLM29Y-dw_qU1urEZ2cQ42La3Jkw6KmzMmXIoLTr50SWTpw6VOGq1leINsnTdLc_S5a5sn9Hao2t5YT7Ax1RqtQDiPNHIyXP46Rrw3aL8&source=gbs_api"
         },        
-        // backgroundImage: "http://books.google.com/books/content?id=1q_xAwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE712CA0cBYP8VKbEcIVEuFJRdX1k30rjLM29Y-dw_qU1urEZ2cQ42La3Jkw6KmzMmXIoLTr50SWTpw6VOGq1leINsnTdLc_S5a5sn9Hao2t5YT7Ax1RqtQDiPNHIyXP46Rrw3aL8&source=gbs_api",
         shelf: 'read'
       },
       { id: 'tomsawyer',
@@ -84,12 +78,10 @@ class BooksApp extends React.Component {
         imageLinks: {
           thumbnail: "http://books.google.com/books/content?id=32haAAAAMAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72yckZ5f5bDFVIf7BGPbjA0KYYtlQ__nWB-hI_YZmZ-fScYwFy4O_fWOcPwf-pgv3pPQNJP_sT5J_xOUciD8WaKmevh1rUR-1jk7g1aCD_KeJaOpjVu0cm_11BBIUXdxbFkVMdi&source=gbs_api"
         },        
-        // backgroundImage: "http://books.google.com/books/content?id=32haAAAAMAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72yckZ5f5bDFVIf7BGPbjA0KYYtlQ__nWB-hI_YZmZ-fScYwFy4O_fWOcPwf-pgv3pPQNJP_sT5J_xOUciD8WaKmevh1rUR-1jk7g1aCD_KeJaOpjVu0cm_11BBIUXdxbFkVMdi&source=gbs_api",
         shelf: 'read'
       }      
-    ],
-    books: [],
-    b1: {}
+    ],    
+    books: []
   }
 
   filterBooks = (status) => {
@@ -108,8 +100,8 @@ class BooksApp extends React.Component {
   }
 
   findBook = (bid) => {
-	for (let i=0; i<  this.state.localBooks.length; i++) {
-      if (this.state.localBooks[i].id === bid) {
+	for (let i=0; i<  this.state.books.length; i++) {
+      if (this.state.books[i].id === bid) {
         return i;
       }
     }    
@@ -126,51 +118,70 @@ class BooksApp extends React.Component {
     // In order to change the bookshelf state, we need to copy the array, make the change and
     // then reset the localBooks array; we cannot make changes to the state directly.
     
-    const newLocalBooks = this.state.localBooks.slice();  // copy localBooks
+    const newBooks = this.state.books.slice();  // copy books
     let bidx = this.findBook(b.id);
     if (bidx !== -1) {
-      newLocalBooks[bidx].shelf = ev;
+      newBooks[bidx].shelf = ev;
+    }
+    else {
+      console.log("book was not found to update shelf");
     }
 
+    BooksAPI.update(b, ev)
+      .then((res) => {
+      console.log("updated book shelf on API " + res);
+    });    
+    
     this.setState( {
-		localBooks: newLocalBooks
+		books: newBooks
     })
-
   }
 
+
   addBookToLibrary = (ev, b) => {
-     console.log("App: addBookToLibrary ");
+     console.log("App: addBookToLibrary " + ev);
     
 
      BooksAPI.get(b.id)
     	.then((bk) => {
-       		const newLocalBooks = this.state.localBooks.slice();  // copy localBooks
-       		console.log("bk.shelf: " + bk.shelf);
+       		const newBooks = this.state.books.slice();  // copy books
+       		console.log("bk.shelf: " + bk.shelf + " ev " + ev);
        	    bk.shelf = ev;
-       		newLocalBooks.push(bk);
+       		newBooks.push(bk);
        
-            BooksAPI.update(bk, 'read')
+            BooksAPI.update(bk, ev)
               .then((res) => {
               console.log("updated book shelf on API " + res);
             });
        
        		this.setState({
-                localBooks : newLocalBooks
-              })
-       
-  		})
-              
-               
-
+                books : newBooks
+              })       
+  		})                             
   }
 
 
   componentDidMount() {
+    let token = localStorage.token
+    if (!token)
+      token = localStorage.token = Math.random().toString(36).substr(-8)
+    const newLocalBooks = this.state.localBooks.slice();  // copy localBooks
+	newLocalBooks[0].id = token;
+    this.setState({
+      localBooks : newLocalBooks
+    })	
+
+    BooksAPI.update(this.state.localBooks[0], 'currentlyReading')
+		.then((res) => {
+              console.log("updated mocking book shelf on API " + res);
+            });          
+             
+    
     BooksAPI.getAll()
     .then((books) => {
           this.setState(() => ({
             books,
-            b1: books[5]
+            // b1: books[5]
           }))
         })
   }
@@ -178,7 +189,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-       {console.log(this.state.books[0])}
+       { console.log(this.state.books) }
 		<Route 
     		path='/search' 
     		render={() => (
@@ -196,7 +207,7 @@ class BooksApp extends React.Component {
                   <h1>MyReads</h1>
                 </div>
 				  
-                  <BookCase localBooks={this.state.localBooks}
+                  <BookCase localBooks={this.state.books}
                             handleShelfChange={this.handleShelfChange}
                             filterBooks={this.filterBooks}
                   />

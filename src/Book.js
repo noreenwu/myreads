@@ -19,7 +19,7 @@ class Book extends React.Component {
                 <div className="book">
                     <div className="book-top">
                         <div className="book-cover" style={this.props.disp}></div>
-{ console.log("Book, the shelf, id :  " + this.props.theBook.shelf + ' ' + this.props.theBook.id) }
+
                             <ShelfSelector shelf={this.props.theBook.shelf} 
 										   handleShelfChange={this.handleShelfChange}/>
                         </div>
