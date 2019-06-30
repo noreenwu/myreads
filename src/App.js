@@ -100,7 +100,6 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-       { console.log(this.state.books) }
 		<Route 
     		path='/search' 
     		render={() => (
