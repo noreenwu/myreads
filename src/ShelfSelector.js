@@ -2,8 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class ShelfSelector extends React.Component {
-  state = {
-    selectValues : [
+
+  handleChange(ev) {
+    console.log("ShelfSelector: handleChange " + ev);
+	this.props.handleShelfChange(ev);
+	// the event.target.value is the name of the shelf chosen (from the value
+    //   of the selector). This component does not know what Book is being affected,
+    //   but its parent, the Book component does
+  }
+  render() {
+    
+    const selectValues = [
       { id: 'move',
         val: 'move',
         label: 'Move to...'
@@ -24,23 +33,13 @@ class ShelfSelector extends React.Component {
         val: 'none',
         label: 'None'
       }      
-    ]
-}
-
-  handleChange(ev) {
-    console.log("ShelfSelector: handleChange " + ev);
-	this.props.handleShelfChange(ev);
-	// the event.target.value is the name of the shelf chosen (from the value
-    //   of the selector). This component does not know what Book is being affected,
-    //   but its parent, the Book component does
-  }
-  render() {
+    ]    
     return(
         <div className="book-shelf-changer">
               <select value={this.props.shelf} 
         			  onChange={(event) => this.handleChange(event.target.value)}>
 							   
-                { this.state.selectValues.map(v => (
+                { selectValues.map(v => (
                     <option key={v.id} value={v.val}>{v.label}</option>
                    ))
                 }

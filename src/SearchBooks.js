@@ -15,12 +15,13 @@ class SearchBooks extends Component {
     sb: []             // searched for books
   }
 
-
+/*********************************************************************/
   handleShelfChange = (ev, b) => {
     console.log("SearchBooks: handleShelfChange " + b.id);
     this.props.addBookToLibrary(ev, b);        
   }
 
+/*********************************************************************/
   findShelf(bid) {
     for (let x of this.props.books) {
     	if (x.id === bid) {          
@@ -30,29 +31,38 @@ class SearchBooks extends Component {
 	return 'none';
   }
 
+/*********************************************************************/
   fixShelf = (bks) => {
     bks.forEach(x => x.shelf = this.findShelf(x.id));
     
     return bks;
   }
 
+/*********************************************************************/
   updateSearchList = (bks) => {
-    // are any of the books returned from the search already on the shelf?
+    // The purpose of this function is to update the bookshelf information
+    // for books that come up as a result of the BooksAPI search. These
+    // books do not have shelf information, even if one tries to put it
+    // there.
+    
     let bookSimple = this.props.books.map(b => { return b.id });
-    console.log("bookSimple " + bookSimple);
+    // get an array of just the id's from the books on shelves
     
     let needsUpdate = bks.filter(f => bookSimple.includes(f.id));
-    console.log("searched books that need update " + needsUpdate);
+	// searched for books that need the correct bookshelf info,
+    //   as they do appear on one of the bookshelves (are in books[])
     
     let noUpdate = bks.filter(f => !bookSimple.includes(f.id));
-    console.log("searched for but do not need update " + noUpdate);
+    // searched for books that are not on a shelf yet
     
     let fixed = this.fixShelf(needsUpdate);
+    // searched for books with the correct bookshelf info
     
     let merged = [...fixed, ...noUpdate];
-    return merged;
+    return merged;      // books that required shelf-fix + books that did not
   }
 
+/*********************************************************************/
   updateQuery = (query) => {
 	 this.setState(() => ({
        query: query
@@ -78,6 +88,7 @@ class SearchBooks extends Component {
     }
   }
 
+/*********************************************************************/
   render() { 
     const { query } = this.state
 
