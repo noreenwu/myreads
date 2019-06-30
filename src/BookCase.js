@@ -7,17 +7,17 @@ const BookCase = (props) => {
             <div className="list-books-content">
               <div>
 				<BookShelf shelfName={'Currently Reading'} 
-						   shelfBooks={props.localBooks.filter(props.filterBooks('currentlyReading'))}
+						   shelfBooks={props.books.filter(props.filterBooks('currentlyReading'))}
 						   handleShelfChange={props.handleShelfChange}
 						   />
           
 				<BookShelf shelfName={'Want to Read'} 
-						   shelfBooks={props.localBooks.filter(props.filterBooks('wantToRead'))}
+						   shelfBooks={props.books.filter(props.filterBooks('wantToRead'))}
 						   handleShelfChange={props.handleShelfChange}
 						   />
 
 				<BookShelf shelfName={'Read'} 
-						   shelfBooks={props.localBooks.filter(props.filterBooks('read'))}
+						   shelfBooks={props.books.filter(props.filterBooks('read'))}
 						   handleShelfChange={props.handleShelfChange}
 						   />
 
@@ -27,7 +27,7 @@ const BookCase = (props) => {
 }
 
 BookCase.propTypes = {
-  localBooks: PropTypes.array.isRequired,
+  books: PropTypes.array.isRequired,
   handleShelfChange: PropTypes.func.isRequired,
   filterBooks: PropTypes.func.isRequired
 }

@@ -12,21 +12,18 @@ class BooksApp extends React.Component {
     books: []
   }
 
+ /*********************************************************************/
+  // This function is passed down to BookCase which utilizes it
+  // to filter the books[] array to achieve the 3-shelf presentation.
   filterBooks = (status) => {
     return function(b) {
       return (b.shelf === status);
     }
   }
 
-  displayVals = (b) => {
-    return (
-      { width: b.width,
-        height: b.height,
-        backgroundImage: b.backgroundimg
-      }
-    );
-  }
-
+ /*********************************************************************/
+  // This is to help find the book which needs its shelf updated, in the 
+  // state array books[]
   findBook = (bid) => {
 	for (let i=0; i<  this.state.books.length; i++) {
       if (this.state.books[i].id === bid) {
@@ -36,6 +33,7 @@ class BooksApp extends React.Component {
     return -1;    // didn't find the book
   }
 
+ /*********************************************************************/
   handleShelfChange = (ev, b) => {
     // The directive to move a book from one shelf to another came from ShelfSelector
     //  which detected that the user made a change in a <select> control. Handling of
@@ -45,6 +43,8 @@ class BooksApp extends React.Component {
     // 
     // In order to change the bookshelf state, we need to copy the array, make the change and
     // then reset the localBooks array; we cannot make changes to the state directly.
+    // BooksAPI.update is also called to update the shelf information for the book in the
+    // backend--this will then be reflected in the status of the app the next time it is run.
     
     const newBooks = this.state.books.slice();  // copy books
     let bidx = this.findBook(b.id);
@@ -65,7 +65,7 @@ class BooksApp extends React.Component {
     })
   }
 
-
+ /*********************************************************************/
   addBookToLibrary = (ev, b) => {
      console.log("App: addBookToLibrary " + ev);
     
@@ -87,7 +87,7 @@ class BooksApp extends React.Component {
   		})                             
   }
 
-
+ /*********************************************************************/
   componentDidMount() {                   
     BooksAPI.getAll()
     .then((books) => {
@@ -117,7 +117,7 @@ class BooksApp extends React.Component {
                   <h1>MyReads</h1>
                 </div>
 				  
-                  <BookCase localBooks={this.state.books}
+                  <BookCase books={this.state.books}
                             handleShelfChange={this.handleShelfChange}
                             filterBooks={this.filterBooks}
                   />
