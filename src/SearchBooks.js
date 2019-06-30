@@ -11,17 +11,22 @@ class SearchBooks extends Component {
     addBookToLibrary: PropTypes.func.isRequired
   }
   state= {
-    query: '',
-    sb: []             // searched for books
+    query: '',         // query string entered by user
+    sb: []             // searched for books are held here
   }
 
 /*********************************************************************/
+ // This function will delegate the work of setting a book's shelf
+ // to the user's selection to the addBookToLibrary function in
+ // its parent, the App component
   handleShelfChange = (ev, b) => {
-    console.log("SearchBooks: handleShelfChange " + b.id);
     this.props.addBookToLibrary(ev, b);        
   }
 
 /*********************************************************************/
+ // This function returns the shelf that the specific book was on
+ // by first identifying the correct book in the stateful and source
+ // of truth books array.
   findShelf(bid) {
     for (let x of this.props.books) {
     	if (x.id === bid) {          
@@ -32,6 +37,8 @@ class SearchBooks extends Component {
   }
 
 /*********************************************************************/
+ // This function takes the set of books that needs its shelf info
+ // updated, and looks that up by calling findShelf with the book id.
   fixShelf = (bks) => {
     bks.forEach(x => x.shelf = this.findShelf(x.id));
     
@@ -49,11 +56,11 @@ class SearchBooks extends Component {
     // get an array of just the id's from the books on shelves
     
     let needsUpdate = bks.filter(f => bookSimple.includes(f.id));
-	// searched for books that need the correct bookshelf info,
+	// searched-for books that need the correct bookshelf info,
     //   as they do appear on one of the bookshelves (are in books[])
     
     let noUpdate = bks.filter(f => !bookSimple.includes(f.id));
-    // searched for books that are not on a shelf yet
+    // searched-for books that are not on a shelf yet
     
     let fixed = this.fixShelf(needsUpdate);
     // searched for books with the correct bookshelf info
@@ -66,7 +73,6 @@ class SearchBooks extends Component {
   updateQuery = (query) => {
 	 this.setState(() => ({
        query: query
-       //query: query
     }))
     
     if (query === '') {

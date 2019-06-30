@@ -2,6 +2,9 @@ import React from 'react'
 import BookShelf from './BookShelf'
 import PropTypes from 'prop-types'
 
+// This is the one stateless functional component in the app. It doesn't need
+// any data structures. It just calls the BookShelf component with different
+// sets of data by filtering books by shelf.
 const BookCase = (props) => {
   return(
             <div className="list-books-content">

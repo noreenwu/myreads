@@ -4,7 +4,6 @@ import ShelfSelector from './ShelfSelector'
 
 class Book extends React.Component {
   handleShelfChange = (ev) => {
-    console.log("Book: handleShelfChange " + ev + ' ' + this.props.theBook.title);
     this.props.handleShelfChange(ev, this.props.theBook);
     // this function will be called by ShelfSelector, if the user chooses
     //   to move one of the books to a different shelf. ShelfSelector

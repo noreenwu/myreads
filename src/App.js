@@ -67,9 +67,13 @@ class BooksApp extends React.Component {
 
  /*********************************************************************/
   addBookToLibrary = (ev, b) => {
-     console.log("App: addBookToLibrary " + ev);
-    
-
+  // When a user chooses to move a book that appears in the search results
+  // on to a shelf, the event is triggered from the SearchPage, and 
+  // this handler is called. Here, the book object is retrieved from
+  // the BooksAPI and then it is updated into the BooksAPI library
+  // where it may be retrieved later, using BooksAPI.getAll. The stateful books
+  // array is also updated here, so that a redisplay of the main page
+  // will reflect the change.    
      BooksAPI.get(b.id)
     	.then((bk) => {
        		const newBooks = this.state.books.slice();  // copy books
@@ -88,7 +92,9 @@ class BooksApp extends React.Component {
   }
 
  /*********************************************************************/
-  componentDidMount() {                   
+  componentDidMount() {
+    // Once this component has mounted, a call to BooksAPI.getAll is made,
+    // populating the books[] array for the first time.
     BooksAPI.getAll()
     .then((books) => {
           this.setState(() => ({

@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// ShelfSelector is solely responsible for rendering the selector on each book,
+// whether for the MyReads page or the Search page. It is responsible for
+// propagating the handleShelfChange event to its parents (ultimately App), where the
+// state of the books is maintained.
 class ShelfSelector extends React.Component {
 
   handleChange(ev) {
@@ -12,6 +16,7 @@ class ShelfSelector extends React.Component {
   }
   render() {
     
+     // These are the values that get loaded into each selector for each book
     const selectValues = [
       { id: 'move',
         val: 'move',
