@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import BookCase from './BookCase'
 import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'

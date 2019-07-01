@@ -59,13 +59,16 @@ class SearchBooks extends Component {
 	// searched-for books that need the correct bookshelf info,
     //   as they do appear on one of the bookshelves (are in books[])
     
-    let noUpdate = bks.filter(f => !bookSimple.includes(f.id));
-    // searched-for books that are not on a shelf yet
+    let updateAsNone = bks.filter(f => !bookSimple.includes(f.id));
+    // searched-for books that are not on a shelf yet...
+    
+    updateAsNone.map(m => m.shelf = 'none');  
+    //... should be update with shelf value 'none'
     
     let fixed = this.fixShelf(needsUpdate);
     // searched for books with the correct bookshelf info
     
-    let merged = [...fixed, ...noUpdate];
+    let merged = [...fixed, ...updateAsNone];
     return merged;      // books that required shelf-fix + books that did not
   }
 

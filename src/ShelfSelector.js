@@ -8,7 +8,6 @@ import PropTypes from 'prop-types'
 class ShelfSelector extends React.Component {
 
   handleChange(ev) {
-    console.log("ShelfSelector: handleChange " + ev);
 	this.props.handleShelfChange(ev);
 	// the event.target.value is the name of the shelf chosen (from the value
     //   of the selector). This component does not know what Book is being affected,
