@@ -15,12 +15,33 @@ class SearchBooks extends Component {
     sb: []             // searched for books are held here
   }
 
+
+/*********************************************************************/
+updateBookInSearchList = (bid, ev) => {
+    const sbCopy = this.state.sb.slice();  // copy search list
+
+    sbCopy.forEach((b) => {
+       if (b.id === bid) {
+          b.shelf = ev;
+       }
+    })
+   
+   // reset state of sb as sbCopy
+    this.setState({
+		sb: sbCopy
+    })   
+}
+
 /*********************************************************************/
  // This function will delegate the work of setting a book's shelf
  // to the user's selection to the addBookToLibrary function in
  // its parent, the App component
   handleShelfChange = (ev, b) => {
-    this.props.addBookToLibrary(ev, b);        
+    this.props.addBookToLibrary(ev, b);
+    
+    // update sb[]
+    this.updateBookInSearchList(b.id, ev);
+    
   }
 
 /*********************************************************************/
@@ -29,7 +50,8 @@ class SearchBooks extends Component {
  // of truth books array.
   findShelf(bid) {
     for (let x of this.props.books) {
-    	if (x.id === bid) {          
+    	if (x.id === bid) { 
+            console.log("findShelf: " + x.shelf);
 			return x.shelf;
         }
 	}
@@ -40,7 +62,12 @@ class SearchBooks extends Component {
  // This function takes the set of books that needs its shelf info
  // updated, and looks that up by calling findShelf with the book id.
   fixShelf = (bks) => {
-    bks.forEach(x => x.shelf = this.findShelf(x.id));
+    bks.forEach(x => { x.shelf = this.findShelf(x.id);
+                       BooksAPI.update(x, x.shelf)
+              				.then((res) => {
+              				console.log("SearchBooks: updated book shelf on API " + x.shelf);
+                       })}
+                      );
     
     return bks;
   }
@@ -64,9 +91,10 @@ class SearchBooks extends Component {
     
     updateAsNone.map(m => m.shelf = 'none');  
     //... should be update with shelf value 'none'
+    // also needs to be updated in the API
     
     let fixed = this.fixShelf(needsUpdate);
-    // searched for books with the correct bookshelf info
+    // searched for books with the correct bookshelf info    
     
     let merged = [...fixed, ...updateAsNone];
     return merged;      // books that required shelf-fix + books that did not
