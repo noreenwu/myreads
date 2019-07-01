@@ -51,7 +51,6 @@ updateBookInSearchList = (bid, ev) => {
   findShelf(bid) {
     for (let x of this.props.books) {
     	if (x.id === bid) { 
-            console.log("findShelf: " + x.shelf);
 			return x.shelf;
         }
 	}
@@ -65,7 +64,7 @@ updateBookInSearchList = (bid, ev) => {
     bks.forEach(x => { x.shelf = this.findShelf(x.id);
                        BooksAPI.update(x, x.shelf)
               				.then((res) => {
-              				console.log("SearchBooks: updated book shelf on API " + x.shelf);
+              				// console.log("SearchBooks: updated BooksAPI " + x.shelf);
                        })}
                       );
     

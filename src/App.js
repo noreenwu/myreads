@@ -56,7 +56,7 @@ class BooksApp extends React.Component {
 
     BooksAPI.update(b, ev)
       .then((res) => {
-      console.log("App: updated book shelf on API " + ev);
+      // console.log("App: updated book shelf on API " + ev);
     });    
     
     this.setState( {
@@ -81,7 +81,7 @@ class BooksApp extends React.Component {
        
             BooksAPI.update(bk, ev)
               .then((res) => {
-              console.log("App: updated book shelf on API " + ev);
+              // console.log("App: updated book shelf on API " + ev);
             });
        
        		this.setState({
