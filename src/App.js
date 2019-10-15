@@ -105,7 +105,6 @@ class BooksApp extends React.Component {
   render() {
     return (
 	    <div className="app">
-	        <h1>hi</h1>
 		<Route 
     		path='/search' 
     		render={() => (
