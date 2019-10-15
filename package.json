@@ -9,7 +9,7 @@
   "devDependencies": {
     "gh-pages": "^2.1.1"
   },
-    "homepage": "https://noreenwu.github.io/myreads",
+    "homepage": "http://noreenwu.github.io/myreads",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
