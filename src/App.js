@@ -102,9 +102,11 @@ class BooksApp extends React.Component {
         })
   }
 
-  render() {
+    render() {
+	console.log("public url", process.env.PUBLIC_URL);
     return (
 	    <div className="app">
+	    
 		<Route 
     		path='/search' 
     		render={() => (
